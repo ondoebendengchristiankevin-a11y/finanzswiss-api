@@ -75,7 +75,7 @@ const formatCurrency = (amount, currency) => {
   }).format(amount);
 };
 
-// --- ROUTE 1 : DEMANDE DE PRÊT (SANS MULTER) ---
+// --- ROUTE 1 : DEMANDE DE PRÊT ---
 router.post('/loan', async (req, res) => {
   try {
     const data = req.body;
@@ -288,7 +288,7 @@ router.post('/loan', async (req, res) => {
   }
 });
 
-// --- ROUTE 2 : CONTACT (SANS MULTER) ---
+// --- ROUTE 2 : CONTACT ---
 router.post('/contact', async (req, res) => {
   try {
     const data = req.body;
@@ -361,4 +361,12 @@ router.get('/health', (req, res) => {
 });
 
 app.use('/api', router);
+
+// ✅ POUR RENDER : Démarrer le serveur
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 API FinanzSwiss démarrée sur le port ${PORT}`);
+});
+
+// ✅ POUR NETLIFY : Garder la compatibilité avec serverless-http
 module.exports.handler = serverless(app);

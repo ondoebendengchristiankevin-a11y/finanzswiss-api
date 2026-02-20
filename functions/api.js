@@ -19,7 +19,7 @@ const BG_LIGHT = "#f4f7f9";
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.hostinger.com',
-  port: 465,
+  port: 587,
   secure: true,
   auth: {
     user: 'kunden.support@finanzswiss.com',
